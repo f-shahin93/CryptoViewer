@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="symbol"
+            type="String" />
+        <variable
+            name="name"
+            type="String" />
+        <variable
+            name="price"
+            type="String" />
+        <variable
+            name="rank"
+            type="String" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/corner_size_small"
+        app:cardElevation="@dimen/elevation_small">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_large">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_symbol"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{symbol}"
+            android:textSize="@dimen/text_small"
+            android:textAllCaps="true"
+            tools:text="btc"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginStart="@dimen/margin_small"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{name}"
+            android:textSize="@dimen/text_small"
+            android:textColor="@color/black"
+            android:layout_marginStart="@dimen/margin_small"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@id/tv_symbol"
+            app:layout_constraintEnd_toStartOf="@id/tv_price"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Bitcoin"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{@string/price_with_dollar_sign(price)}"
+            android:textSize="@dimen/text_small"
+            android:textColor="@color/black"
+            android:layout_marginStart="@dimen/margin_small"
+            android:gravity="center"
+            app:layout_constraintEnd_toStartOf="@id/tv_rank"
+            app:layout_constraintStart_toEndOf="@id/tv_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="98563 $"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_rank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/rank_with_sharp_sign(rank)}"
+            android:textSize="@dimen/text_small"
+            android:textColor="@color/black"
+            android:layout_marginStart="@dimen/margin_small"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="#1"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
