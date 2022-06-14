@@ -1,5 +1,6 @@
 package com.shahin.cryptoviewer.di.datasource
 
+import com.shahin.cryptoviewer.datasource.network.interceptors.AuthorizationInterceptor
 import com.shahin.cryptoviewer.datasource.network.service.CurrencyService
 import dagger.Module
 import dagger.Provides
@@ -15,8 +16,9 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient =
+    fun provideOkHttpClient(authorizationInterceptor: AuthorizationInterceptor): OkHttpClient =
         OkHttpClient.Builder()
+            .addInterceptor(authorizationInterceptor)
             .addInterceptor(HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY
             })

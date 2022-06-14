@@ -23,8 +23,8 @@
         tools:layout="@layout/fragment_currency_detail_dialog">
         <argument
             android:name="currency_id"
-            app:argType="string"
-            app:nullable="true" />
+            app:argType="long"
+            android:defaultValue="-1L" />
     </dialog>
 
 </navigation>

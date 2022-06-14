@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 interface CurrencyService {
 
-    @GET("digital-money/")
+    @GET("listings/latest")
     suspend fun getCurrencyList(): MainResponse
 
 }

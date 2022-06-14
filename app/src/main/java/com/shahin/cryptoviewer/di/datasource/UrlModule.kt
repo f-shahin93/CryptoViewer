@@ -8,8 +8,8 @@ import javax.inject.Named
 class UrlModule {
 
     companion object {
-        const val WEBSITE_ENDPOINT = "https://www.megaweb.ir/"
-        const val BASE_PATH = "api/"
+        const val WEBSITE_ENDPOINT = "https://pro-api.coinmarketcap.com/"
+        const val BASE_PATH = "v1/cryptocurrency/"
     }
 
     @Provides
