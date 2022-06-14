@@ -3,6 +3,7 @@ package com.shahin.cryptoviewer.ui.list
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.shahin.cryptoviewer.MainActivity
@@ -37,10 +38,26 @@ class CurrencyListFragment : BaseFragment<FragmentCurrencyListBinding>(
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setupObservers()
+        setupSearchBox()
+
+    }
+
+    private fun setupSearchBox() {
+        binding.search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                query?.let { viewModel.search(query) }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let { viewModel.search(newText) }
+                return true
+            }
+        })
     }
 
     private fun setupObservers() {
-        viewModel.currencySuccess.observe(viewLifecycleOwner) {
+        viewModel.mainList.observe(viewLifecycleOwner) {
             adapter.submitList(it)
             checkLoading(it.isNullOrEmpty())
         }

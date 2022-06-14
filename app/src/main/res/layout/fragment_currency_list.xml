@@ -16,6 +16,15 @@
             android:layout_height="wrap_content"
             app:title="@string/app_name" />
 
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_medium"
+            android:layout_marginVertical="@dimen/margin_small"
+            app:queryHint="search"
+            android:focusableInTouchMode="true"/>
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
