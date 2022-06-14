@@ -3,8 +3,14 @@ package com.shahin.cryptoviewer.ui.utils
 import android.content.Context
 import android.graphics.Rect
 import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.annotation.DimenRes
+import androidx.core.content.ContextCompat
+import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.snackbar.Snackbar
 import com.shahin.cryptoviewer.R
 
@@ -36,3 +42,35 @@ fun marginItemDecoration(
 
 fun snackBar(view: View, context: Context, text: String) =
     Snackbar.make(context, view, text, Snackbar.LENGTH_SHORT)
+
+private fun getColorByPercent(context: Context, percent: Float) =
+    ContextCompat.getColor(
+        context,
+        when {
+            percent > 0 -> android.R.color.holo_green_light
+            percent < 0 -> android.R.color.holo_red_dark
+            else -> android.R.color.black
+        }
+    )
+
+@BindingAdapter("textColorPercent")
+fun setTextColorByPercent(textView: TextView, percent: String?) {
+    if (percent.isNullOrEmpty()) {
+        return
+    } else {
+        textView.setTextColor(getColorByPercent(textView.context, percent.toFloat()))
+    }
+}
+
+@BindingAdapter("loadImg")
+fun loadImg(imageView: ImageView, url: String?) {
+    val loadUrl = if (url.isNullOrEmpty())
+        "https://s2.coinmarketcap.com/static/img/coins/32x32/1.png"
+    else
+        url
+
+    Glide.with(imageView).load(loadUrl)
+        .diskCacheStrategy(DiskCacheStrategy.ALL)
+        .centerCrop().into(imageView)
+}
+

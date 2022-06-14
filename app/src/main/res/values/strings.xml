@@ -3,4 +3,12 @@
     <string name="error">error!</string>
     <string name="price_with_dollar_sign">%1$s $</string>
     <string name="rank_with_sharp_sign"># %1$s</string>
+    <string name="label_rank">Rank</string>
+    <string name="label_market_cap">Market Cap</string>
+    <string name="label_volume_24h">Volume 24h</string>
+    <string name="label_percentage">Percent change in:</string>
+    <string name="label_24h">24h</string>
+    <string name="label_1h">1h</string>
+    <string name="label_7d">7d</string>
+    <string name="percent">%1$s %</string>
 </resources>

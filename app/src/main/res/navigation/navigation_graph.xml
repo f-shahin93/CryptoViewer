@@ -8,9 +8,23 @@
     <fragment
         android:id="@+id/navigation_currency_list"
         android:name="com.shahin.cryptoviewer.ui.list.CurrencyListFragment"
-        tools:layout="@layout/fragment_currency_list"
-        android:label="CurrencyListFragment" >
+        android:label="CurrencyListFragment"
+        tools:layout="@layout/fragment_currency_list">
+        <action
+            android:id="@+id/list_to_detail"
+            app:destination="@id/navigation_currency_detail_dialog"/>
 
     </fragment>
+
+    <dialog
+        android:id="@+id/navigation_currency_detail_dialog"
+        android:name="com.shahin.cryptoviewer.ui.detail.CurrencyDetailDialogFragment"
+        android:label="CurrencyDetailDialogFragment"
+        tools:layout="@layout/fragment_currency_detail_dialog">
+        <argument
+            android:name="currency_id"
+            app:argType="string"
+            app:nullable="true" />
+    </dialog>
 
 </navigation>

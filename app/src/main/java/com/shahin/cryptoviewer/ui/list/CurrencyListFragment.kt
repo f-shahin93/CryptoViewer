@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.shahin.cryptoviewer.MainActivity
 import com.shahin.cryptoviewer.R
 import com.shahin.cryptoviewer.databinding.FragmentCurrencyListBinding
@@ -75,9 +76,7 @@ class CurrencyListFragment : BaseFragment<FragmentCurrencyListBinding>(
     }
 
     private fun navigateToDetail(currencyId: String) {
-        /*findNavController().navigate(
-            CurrencyDialogFragmentDirections.currencyListToCurrencyDetail(currencyId)
-        )*/
+        findNavController().navigate(CurrencyListFragmentDirections.listToDetail(currencyId))
     }
 
     override fun onItemClicked(currencyId: String) {
