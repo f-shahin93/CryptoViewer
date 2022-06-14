@@ -75,11 +75,11 @@ class CurrencyListFragment : BaseFragment<FragmentCurrencyListBinding>(
         binding.list.adapter = this.adapter
     }
 
-    private fun navigateToDetail(currencyId: String) {
+    private fun navigateToDetail(currencyId: Long) {
         findNavController().navigate(CurrencyListFragmentDirections.listToDetail(currencyId))
     }
 
-    override fun onItemClicked(currencyId: String) {
+    override fun onItemClicked(currencyId: Long) {
         navigateToDetail(currencyId)
     }
 

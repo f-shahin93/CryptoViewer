@@ -81,15 +81,15 @@ class CurrencyDetailDialogFragment : DialogFragment() {
         val currency = viewModel.currencySuccess.value?.find { it.id == args.currencyId }
         currency?.let {
             binding.apply {
-                imgUrl = getImageUrl(currency.rank)
+                currencyId = currency.id
                 name = currency.name
                 price = currency.priceUsd
                 rank = currency.rank.toString()
                 marketCap = currency.marketCapUsd
                 volume24h = currency.volume24.toString()
-                percent24h = currency.percentChange24h
-                percent1h = currency.percentChange1h
-                percent7d = currency.percentChange7d
+                percent24h = currency.percentChange24h.toString()
+                percent1h = currency.percentChange1h.toString()
+                percent7d = currency.percentChange7d.toString()
             }
         }
     }

@@ -16,6 +16,9 @@
         <variable
             name="rank"
             type="String" />
+        <variable
+            name="currencyId"
+            type="Long" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -29,6 +32,17 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/margin_large">
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:loadImg="@{currencyId}"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_symbol"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_symbol"
             android:layout_width="0dp"
@@ -40,8 +54,7 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:layout_marginStart="@dimen/margin_small"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_icon"
             app:layout_constraintEnd_toStartOf="@id/tv_name"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>

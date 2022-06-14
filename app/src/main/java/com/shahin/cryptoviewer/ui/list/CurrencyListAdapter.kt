@@ -40,6 +40,7 @@ class CurrencyListAdapter(val lifecycleOwner: LifecycleOwner, val listener: Curr
         fun bind(item: Currency) {
             itemVH = item
             binding.run {
+                currencyId = item.id
                 symbol = item.symbol
                 name = item.name
                 price = item.priceUsd
@@ -49,7 +50,7 @@ class CurrencyListAdapter(val lifecycleOwner: LifecycleOwner, val listener: Curr
     }
 
     interface CurrencyItemClickListener {
-        fun onItemClicked(currencyId: String)
+        fun onItemClicked(currencyId: Long)
     }
 
 }

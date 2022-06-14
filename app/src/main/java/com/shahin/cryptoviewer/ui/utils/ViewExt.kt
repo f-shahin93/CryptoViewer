@@ -63,11 +63,11 @@ fun setTextColorByPercent(textView: TextView, percent: String?) {
 }
 
 @BindingAdapter("loadImg")
-fun loadImg(imageView: ImageView, url: String?) {
-    val loadUrl = if (url.isNullOrEmpty())
-        "https://s2.coinmarketcap.com/static/img/coins/32x32/1.png"
+fun loadImg(imageView: ImageView, currencyId: Long?) {
+    val loadUrl = if (currencyId == null)
+        getImageUrl()
     else
-        url
+        getImageUrl(id = currencyId)
 
     Glide.with(imageView).load(loadUrl)
         .diskCacheStrategy(DiskCacheStrategy.ALL)
